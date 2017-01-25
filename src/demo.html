@@ -1,10 +1,32 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="../css/element-ui-default.css">
     <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/element-ui.js"></script>
 </head>
-<div id="app" v-demo:hello.a.b="message">
+<div id="app">
     {{message}}
+    <el-button type="primary" v-on:click="visible=true">Button</el-button>
+    <el-button type="text">文字按钮</el-button>
+
+    <el-radio class="radio" v-model="radio" label="1">备选项</el-radio>
+    <el-radio class="radio" v-model="radio" label="2">备选项</el-radio>
+
+    <el-dialog v-model="visible" title="Hello world">
+        <p>Welcome Element</p>
+    </el-dialog>
+    <div class="block">
+        <span class="demonstration">default</span>
+        <el-date-picker v-model="value3" type="datetimerange" placeholder="Select date time"></el-date-picker>
+        <el-date-picker v-model="value4" type="datetimerange" :picker-options="pickerOptions2" placeholder="选择时间范围" align="right">
+        </el-date-picker>
+    </div>
+
+    <div>
+        <span class="demonstration">默认不区分颜色</span>
+        <el-rate v-model="value1"></el-rate>
+    </div>
 </div>
 
 <script type="text/javascript" src="../js/demo.js"></script>
