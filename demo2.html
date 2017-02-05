@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vuejs demo 2</title>
+    <script type="text/javascript" src="scripts/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <span>
+        {{message}}
+    </span>
+    <div>
+        <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="wendy" value="wendy" v-model="checkedNames">
+        <label for="wendy">Wendy</label>
+        <input type="checkbox" id="sun" value="sun" v-model="checkedNames">
+        <label for="sun">Sun</label>
+    </div>
+    <div>
+        Checked Name: {{checkedNames}}
+    </div>
+
+    <div>
+        <input type="radio" id="one" value="one" v-model="picked">
+        <label for="one">One</label>
+        <input type="radio" id="two" value="two" v-model="picked">
+        <label for="two">Two</label>
+
+    </div>
+    <div>
+        picked : {{picked}}
+    </div>
+    <div>
+        <select v-model="selected">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{selected}}</span>
+    </div>
+    <div>
+        Multi-Selected Demo:
+        <select v-model="multi_selected"  multiple>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+        </select>
+        <span>Selected: {{multi_selected}}</span>
+    </div>
+    <div>
+        Dynamic Multi-Selected Demo:
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+        </select>
+        <span>Selected: {{selected}}</span>
+    </div>
+    <div>
+        <input type="checkbox" v-model="toggle" v-bind:true-value="a" v-bind:false-value="b">
+        <span>vm.toggle==vm.a? {{toggle === a}}</span>
+    </div>
+    <div>
+        simple pick
+        <input type="radio" v-model="simple_picked" v-bind:value="a">
+        <span>vm.simple_picked === vm.a? {{simple_picked === a}}</span>
+    </div>
+    <div>
+        selected:
+        <select v-model="selected2">
+            <option v-bind:value="{number:123}">123</option>
+        </select>
+        <div>typeof vm.selected2: {{typeof selected2}}</div>
+        <div>typeof vm.selected2.number: {{typeof selected2.number}}</div>
+    </div>
+    <div>
+        <input v-model.lazy="msg">
+        <span>{{msg}}</span>
+    </div>
+    <div>
+        <input v-model.number="age" type="number">
+        <span>Age: {{age}}</span>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="scripts/demo2.js"></script>
+</html>
