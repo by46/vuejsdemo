@@ -5,6 +5,8 @@ var concat = require('gulp-concat');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
+var babel = require('gulp-babel');
+
 gulp.task('browser-sync', function () {
     var files = ['src/demo.html'];
     browserSync.init({
@@ -34,4 +36,12 @@ gulp.task('js', function () {
         .pipe(uglify())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('build'));
+});
+
+gulp.task('es6', function () {
+    gulp.src('js/demo.js')
+        .pipe(babel())
+        .pipe(uglify())
+        .pipe(concat('demo.js'))
+        .pipe(gulp.dest('build'))
 });
