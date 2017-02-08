@@ -6,9 +6,21 @@
 </head>
 <body>
 <div id="app">
-
+    <dfis-select></dfis-select>
+    <dfis-editor></dfis-editor>
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+    <child message="hello"></child>
+    <input v-model="parentMsg">
+    <child v-bind:message="parentMsg"></child>
+    <example prop-c="benjamin"></example>
+    <div>Click counter: {{total}}</div>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+    <currency-input v-model="amount"></currency-input>
 </div>
 </body>
 
-<script type="text/javascript" src="scripts/component.js"></script>
+<script type="text/javascript" src="js/component.js"></script>
 </html>
